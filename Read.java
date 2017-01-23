@@ -16,8 +16,8 @@ public class Read {
 
       while(rowIterator.hasNext()) {
          row = rowIterator.next();
-         Iterator<Cell> cellIterator = row.cellIterator();
-         while(cellIterator.hasNext()) {
+         Iterator<Cell<T>> cellIterator = row.cellIterator();
+         /*while(cellIterator.hasNext()) {
             Cell cell = cellIterator.next();
             switch(cell.getCellType()) {
                case Cell.CELL_TYPE_NUMERIC:
@@ -27,10 +27,19 @@ public class Read {
                   System.out.print(cell.getStringCellValue() + " \t\t ");
                   break;
             }
-         }
+         }*/
+         //create a new Plant object
+         Plant plant = new Plant();
+         plant.barcode = cellIterator.next(); /*saving the barcode is a field we need to add to the plant object struct*/
+         plant.botanicalName = cellIterator.next();
+         plant.commonName = cellIterator.next();
+         plant.size = cellIterator.next();
+         plant.details = cellIterator.next();
+         
+         /*other code to manipulate the data further*/
 
-         System.out.println("");
-         System.out.println("");
+         /*System.out.println("");
+         System.out.println("");*/
       }
 
       in.close();
